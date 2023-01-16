@@ -8,7 +8,7 @@ import pandas as pd
 
 df = pd.read_csv("https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/indep.csv", on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
 df_Region = pd.read_csv(r"https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/region.csv", on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
-df_total = pd.read_csv(r"https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/Total.csv" , on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
+df_Total = pd.read_csv(r"https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/Total.csv" , on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
 
 df_Indep_0 = df_Indep[df_Indep['indep']==0]
 df_Indep_1 = df_Indep[df_Indep['indep']==1]
