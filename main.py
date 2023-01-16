@@ -6,9 +6,9 @@ import pandas as pd
 
 # Bar Charts
 
-df_Indep = pd.read_excel(r"C:\Users\Peter\OneDrive\TopKI\Machine_Learning\Tools_Algorithmen\Dash_Plotly\Knowhow_Plotly_Dash\Chart_sammlung\06_Dashboard_month\Indep.xlsx", index_col = 0)
-df_Region= pd.read_excel(r"C:\Users\Peter\OneDrive\TopKI\Machine_Learning\Tools_Algorithmen\Dash_Plotly\Knowhow_Plotly_Dash\Chart_sammlung\06_Dashboard_month\Region.xlsx", index_col = 0)
-df_Total= pd.read_excel(r"C:\Users\Peter\OneDrive\TopKI\Machine_Learning\Tools_Algorithmen\Dash_Plotly\Knowhow_Plotly_Dash\Chart_sammlung\06_Dashboard_month\Total.xlsx", index_col = 0)
+df = pd.read_csv("https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/indep.csv", on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
+df_Region = pd.read_csv(r"https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/region.csv", on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
+df_total = pd.read_csv(r"https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/Total.csv" , on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
 
 df_Indep_0 = df_Indep[df_Indep['indep']==0]
 df_Indep_1 = df_Indep[df_Indep['indep']==1]
