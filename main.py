@@ -316,4 +316,5 @@ app.layout = html.Div([
 ])
  
 # Run app and display result inline in the notebook
-app.run_server(port = 8080)
+if __name__ == '__main__':
+    app.run_server(debug=False)
