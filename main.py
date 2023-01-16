@@ -4,9 +4,11 @@ import plotly.express as px
 import pandas as pd
 
 
+
+
 # Bar Charts
 
-df = pd.read_csv("https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/indep.csv", on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
+df_Indep = pd.read_csv("https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/indep.csv", on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
 df_Region = pd.read_csv(r"https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/region.csv", on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
 df_Total = pd.read_csv(r"https://raw.githubusercontent.com/topkigmbh/topki-dashboard/main/Total.csv" , on_bad_lines='skip',delimiter = ';' ,  index_col = 0)
 
@@ -35,9 +37,9 @@ def drawFigure_DCH():
                     config={
                         'displayModeBar': False
                     }
-                ) 
+                )
             ])
-        ),  
+        ),
     ])
 
 def drawFigure_WCH():
@@ -56,9 +58,9 @@ def drawFigure_WCH():
                     config={
                         'displayModeBar': False
                     }
-                ) 
+                )
             ])
-        ),  
+        ),
     ])
 
 def drawFigure_ICH():
@@ -77,9 +79,9 @@ def drawFigure_ICH():
                     config={
                         'displayModeBar': False
                     }
-                ) 
+                )
             ])
-        ),  
+        ),
     ])
 
 def drawFigure_Indep():
@@ -98,9 +100,9 @@ def drawFigure_Indep():
                     config={
                         'displayModeBar': False
                     }
-                ) 
+                )
             ])
-        ),  
+        ),
     ])
 
 
@@ -121,9 +123,9 @@ def drawFigure_Ketten():
                     config={
                         'displayModeBar': False
                     }
-                ) 
+                )
             ])
-        ),  
+        ),
     ])
 
 
@@ -144,7 +146,7 @@ def drawFigure_Tot_bar():
                     }
                 )
             ])
-        ),  
+        ),
     ])
 
 
@@ -166,7 +168,7 @@ def drawFigure_Tot_line():
                     }
                 )
             ])
-        ),  
+        ),
     ])
 
 # Text Felder
@@ -177,7 +179,7 @@ def drawText_DCH():
             dbc.CardBody([
                 html.Div([
                     html.H2("Umsatz Deutschschweiz"),
-                ], style={'textAlign': 'center'}) 
+                ], style={'textAlign': 'center'})
             ])
         ),
     ])
@@ -188,7 +190,7 @@ def drawText_WCH():
             dbc.CardBody([
                 html.Div([
                     html.H2("Umsatz Westschweiz"),
-                ], style={'textAlign': 'center'}) 
+                ], style={'textAlign': 'center'})
             ])
         ),
     ])
@@ -199,7 +201,7 @@ def drawText_ICH():
             dbc.CardBody([
                 html.Div([
                     html.H2("Umsatz Tessin"),
-                ], style={'textAlign': 'center'}) 
+                ], style={'textAlign': 'center'})
             ])
         ),
     ])
@@ -210,7 +212,7 @@ def drawText_Ketten():
             dbc.CardBody([
                 html.Div([
                     html.H2("Umsatz Ketten"),
-                ], style={'textAlign': 'center'}) 
+                ], style={'textAlign': 'center'})
             ])
         ),
     ])
@@ -221,7 +223,7 @@ def drawText_Indep():
             dbc.CardBody([
                 html.Div([
                     html.H2("Umsatz Unabhängig"),
-                ], style={'textAlign': 'center'}) 
+                ], style={'textAlign': 'center'})
             ])
         ),
     ])
@@ -232,7 +234,7 @@ def drawText_Totline():
             dbc.CardBody([
                 html.Div([
                     html.H2("Umsatz Total nach Kategorie"),
-                ], style={'textAlign': 'center'}) 
+                ], style={'textAlign': 'center'})
             ])
         ),
     ])
@@ -243,7 +245,7 @@ def drawText_Totbar():
             dbc.CardBody([
                 html.Div([
                     html.H2("Umsatz Total kumuliert"),
-                ], style={'textAlign': 'center'}) 
+                ], style={'textAlign': 'center'})
             ])
         ),
     ])
@@ -251,6 +253,7 @@ def drawText_Totbar():
 
 # Build App
 app = Dash(external_stylesheets=[dbc.themes.SLATE])
+server = app.server
 
 app.layout = html.Div([
     dbc.Card(
@@ -261,44 +264,44 @@ app.layout = html.Div([
                 ], width=3),
                 dbc.Col([
                     drawText_WCH()
-                ], width=3),                    
+                ], width=3),
 #                dbc.Col([
 #                    drawText_ICH()
-#                ], width=2),                    
+#                ], width=2),
                 dbc.Col([
                     drawText_Ketten()
                 ], width=3),
                 dbc.Col([
                     drawText_Indep()
                 ], width=3),
-            ], align='center'), 
+            ], align='center'),
             html.Br(),
             dbc.Row([
                 dbc.Col([
-                    drawFigure_DCH() 
+                    drawFigure_DCH()
                 ], width=3),
                 dbc.Col([
                     drawFigure_WCH()
                 ], width=3),
 #                dbc.Col([
-#                    drawFigure_ICH() 
+#                    drawFigure_ICH()
 #                ], width=2),
                 dbc.Col([
                     drawFigure_Ketten()
                 ], width=3),
                 dbc.Col([
-                    drawFigure_Indep() 
+                    drawFigure_Indep()
                 ], width=3),
-            ], align='center'), 
-            html.Br(),            
+            ], align='center'),
+            html.Br(),
             dbc.Row([
                 dbc.Col([
                     drawText_Totline()
                 ], width=9),
                 dbc.Col([
                     drawText_Totbar()
-                ], width=3),                    
-            ], align='center'), 
+                ], width=3),
+            ], align='center'),
             html.Br(),
             dbc.Row([
                 dbc.Col([
@@ -307,9 +310,10 @@ app.layout = html.Div([
                 dbc.Col([
                     drawFigure_Tot_line()
                 ], width=3),
-            ], align='center'),      
+            ], align='center'),
         ]), color = 'dark'
     )
 ])
-app.run_server()
+
 # Run app and display result inline in the notebook
+app.run_server()
