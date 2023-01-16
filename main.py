@@ -314,6 +314,6 @@ app.layout = html.Div([
         ]), color = 'dark'
     )
 ])
-
+ 
 # Run app and display result inline in the notebook
 app.run_server(port = 8080)
